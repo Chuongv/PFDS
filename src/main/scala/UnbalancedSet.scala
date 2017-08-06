@@ -1,8 +1,8 @@
 import scala.annotation.tailrec
 
-trait UnbalancedSet[T] extends Set[T, Tree[T]] {
+class UnbalancedSet[T]()(implicit ev: Ordering[T]) extends Set[T, Tree[T]] {
 
-  implicit val ev :Ordered[T]
+  override def empty: Tree[T] = Empty
 
   override def member(e: T, t: Tree[T]): Boolean =
     t match {
