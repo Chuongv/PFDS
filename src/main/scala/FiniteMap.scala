@@ -1,4 +1,4 @@
-class FiniteMap[K,V]()(implicit ev: Ordering[K]) extends UnbalancedSet[(K,V)] {
+class FiniteMap[K,V]()(implicit ev: Ordering[K], ev2: Ordering[(K,V)]) extends UnbalancedSet[(K,V)] {
   def lookup(k: K, tree: Tree[(K,V)]): V =
     tree match {
       case Empty => throw new Exception("No key found")
